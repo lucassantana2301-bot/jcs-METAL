@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #08080a;
+  --foreground: #f3f4f6;
+  --jcs-red: #e11d48;
+  --jcs-forge: #f97316;
+  --jcs-cyan: #06b6d4;
+  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, [data-cursor] {
+    cursor: none !important;
+  }
+}
+
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+/* Custom Scrollbar for a premium industrial feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e11d48;
+}
+
+/* Selection */
+::selection {
+  background-color: #e11d48;
+  color: #ffffff;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(12, 12, 16, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(18, 18, 24, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card:hover {
+  border-color: rgba(225, 29, 72, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(225, 29, 72, 0.15);
+}
+
+/* Metallic brushed gradient texture */
+.metallic-surface {
+  background: linear-gradient(135deg, #18181b 0%, #0f0f12 50%, #1c1c22 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.metallic-border {
+  position: relative;
+}
+
+.metallic-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.03), rgba(225, 29, 72, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Blueprint CAD grid background */
+.blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 163, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 163, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Forge glow effect */
+.forge-glow {
+  box-shadow: 0 0 50px -10px rgba(249, 115, 22, 0.35);
+}
+
+.red-glow {
+  box-shadow: 0 0 50px -10px rgba(225, 29, 72, 0.35);
+}
+
+/* Industrial laser scanner line */
+@keyframes laserScan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(1000%); opacity: 0; }
+}
+
+.laser-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #06b6d4, #ffffff, #06b6d4, transparent);
+  box-shadow: 0 0 15px #06b6d4;
+  animation: laserScan 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Subtle particle effect animation */
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  50% { opacity: 0.9; }
+  100% { transform: translateY(-80vh) scale(0.3); opacity: 0; }
+}
+
+.spark {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #f97316;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(249, 115, 22, 0.8);
+  animation: floatUp linear infinite;
+  bottom: -10px;
+}
+
+.animate-dash { 
+  stroke-dasharray: 10, 10; 
+  animation: dash 1s linear infinite; 
+}
+
+@keyframes dash { 
+  to { stroke-dashoffset: -20; } 
+}
+
+/* Text glow */
+.text-glow-red {
+  text-shadow: 0 0 20px rgba(225, 29, 72, 0.6);
+}
+
+.text-glow-orange {
+  text-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+}

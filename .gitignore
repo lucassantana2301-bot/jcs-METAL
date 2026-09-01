@@ -1,0 +1,6 @@
+﻿node_modules
+.next
+.next-corrupted
+.env*
+*.log
+.DS_Store
