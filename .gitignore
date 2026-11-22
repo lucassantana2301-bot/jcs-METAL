@@ -1,6 +1,10 @@
-﻿node_modules
+node_modules
 .next
 .next-corrupted
 .env*
 *.log
 .DS_Store
+
+# Node portátil local e artefatos de build: não pertencem ao repositório
+.node/
+*.tsbuildinfo
